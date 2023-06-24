@@ -41,7 +41,7 @@ public class PagamentoService {
         pagamento.setStatus(Status.CRIADO);
         repository.save(pagamento);
 
-        return modelMapper.map(pagamento, PagamentoDTO.class)
+        return modelMapper.map(pagamento, PagamentoDTO.class);
     }
 
     public PagamentoDTO atualizarPagamento(Long id, PagamentoDTO dto){
@@ -49,7 +49,7 @@ public class PagamentoService {
         pagamento.setId(id);
         pagamento = repository.save(pagamento);
 
-        return modelMapper.map(pagamento, PagamentoDTO.class)
+        return modelMapper.map(pagamento, PagamentoDTO.class);
     }
 
     public void excluirPagamento(Long id){
