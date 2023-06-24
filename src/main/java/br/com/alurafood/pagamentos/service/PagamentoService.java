@@ -44,12 +44,16 @@ public class PagamentoService {
         return modelMapper.map(pagamento, PagamentoDTO.class)
     }
 
-    public PagamentoDTO atualizarPagamento(Long Id, PagamentoDTO dto){
+    public PagamentoDTO atualizarPagamento(Long id, PagamentoDTO dto){
         Pagamento pagamento = modelMapper.map(dto, Pagamento.class);
-        pagamento.setId(Id);
+        pagamento.setId(id);
         pagamento = repository.save(pagamento);
 
         return modelMapper.map(pagamento, PagamentoDTO.class)
+    }
+
+    public void excluirPagamento(Long id){
+        repository.deleteById(id);
     }
 
 }
