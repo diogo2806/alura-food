@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: ./mvnw install -DskipTests=false
+  - init: sudo /etc/init.d/mysql start && ./mvnw install -DskipTests=false
   - name: MySQL Server
     command: docker run --rm -d -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=alurafood-pagamento -e MYSQL_USER=root -e MYSQL_PASSWORD=root -p 3306:3306 mysql:latest
 
