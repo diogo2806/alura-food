@@ -2,13 +2,14 @@
 package br.com.alurafood.pagamentos.dto;
 
 import java.math.BigDecimal;
-import br.com.alurafood.pagamentos.Model.Status;
+
+import br.com.alurafood.pagamentos.model.Status;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class PagamentoDTO{
+public class PagamentoDto {
 
 
     private Long Id;
