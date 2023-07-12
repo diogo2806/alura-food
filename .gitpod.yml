@@ -6,5 +6,10 @@
 
 tasks:
   - init: ./mvnw install -DskipTests=false
+  - name: MySQL Server
+    command: sudo service mysql start
+image:
+  file: .gitpod.Dockerfile
+
 
 
