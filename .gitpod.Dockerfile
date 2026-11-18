@@ -21,6 +21,13 @@ RUN curl --fail --silent --show-error --location \
     && sudo tar -xzf /tmp/amazon-corretto.tar.gz -C /opt/amazon-corretto-17 --strip-components=1 \
     && rm /tmp/amazon-corretto.tar.gz
 
+# Gitpod initializes SDKMAN in workspace shells; keep its default on patched Java 17.
+# https://github.com/gitpod-io/workspace-images/blob/main/chunks/lang-java/Dockerfile
+# https://sdkman.io/usage/
+RUN bash -c '. /home/gitpod/.sdkman/bin/sdkman-init.sh \
+    && sdk install java "${CORRETTO_VERSION}-corretto-gitpod" /opt/amazon-corretto-17 \
+    && sdk default java "${CORRETTO_VERSION}-corretto-gitpod"'
+
 ENV JAVA_HOME=/opt/amazon-corretto-17
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
